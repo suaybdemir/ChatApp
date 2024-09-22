@@ -60,7 +60,7 @@ namespace ChatAppServer.WebAPI.Controllers
         }
 
 
-        [HttpGet]
+        [HttpPost]
         public async Task<IActionResult> Login(string name,CancellationToken cancellationToken)
         {
             ApplicationUser? user = await _context.Users.FirstOrDefaultAsync(p=>p.Name == name,cancellationToken);
@@ -74,7 +74,7 @@ namespace ChatAppServer.WebAPI.Controllers
 
             await _context.SaveChangesAsync(cancellationToken);
 
-            return Ok(user);
+            return Ok(new { success = true, user });
         }
     }
 }

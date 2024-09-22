@@ -153,28 +153,52 @@ body.login .lock-container .panel input {
 <div class="panel panel-default text-center">
 <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-circle img-login">
 <div class="panel-body">
-<input class="form-control" type="text" placeholder="Username" value="username">
-<input class="form-control" type="password" placeholder="Enter Password" value>
-<a href="#index.html" class="btn btn-success" id="login">Login <i class="fa fa-fw fa-unlock-alt"></i></a>
+  <input class="form-control" id="name" type="text" placeholder="Username">
+<input class="form-control" id="password" type="password" placeholder="Enter Password">
+<a href="index.html" class="btn btn-success" id="login">Login <i class="fa fa-fw fa-unlock-alt"></i></a>
+
 <script>
-  // app.js
-document.getElementById('login').addEventListener('click', () => {
-  fetch('https://localhost:44335/Authentication/Login', {
-    method: 'GET',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ key: 'username' }) // Göndermek istediğin veriyi buraya yaz
-})
-.then(response => response.json())
-.then(data => console.log(data))
-.catch(error => console.error('Hata:', error));
+  document.getElementById('login').addEventListener('click', (event) => {
+    event.preventDefault(); // Prevent the default anchor behavior
 
-});
+    // Get values from the input fields
+    const username = document.getElementById('name').value;
+    // const password = document.getElementById('password').value;
 
+    const url = `http://localhost:5236/api/Authentication/Login?name=${encodeURIComponent(username)}`;
 
+      fetch(url, {
+      method: 'POST', // Use POST for sensitive data
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8 ', // Send JSON data
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({}) // Include username and password
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log(data); // Handle successful response data
 
+      // Check if the login was successful
+      if (data.success) { // Adjust this according to your API response structure
+        localStorage.setItem('user', JSON.stringify(data.user));
+        window.location.href = 'index.html'; // Redirect to index.html
+      } else {
+        // Handle unsuccessful login (e.g., show an error message)
+        alert('Login failed: ' + data.message);
+      }
+    })
+    .catch(error => console.error('Error:', error));
+  });
 </script>
+
+
+  
 <a href="#" class="forgot-password">Forgot password?</a>
 </div>
 </div>

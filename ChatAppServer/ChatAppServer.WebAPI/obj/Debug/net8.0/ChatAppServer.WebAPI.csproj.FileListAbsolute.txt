@@ -279,3 +279,4 @@ C:\Users\pc\Documents\Realtime_ChatApp\ChatAppServer\ChatAppServer.WebAPI\obj\De
 C:\Users\pc\Documents\Realtime_ChatApp\ChatAppServer\ChatAppServer.WebAPI\obj\Debug\net8.0\ChatAppServer.WebAPI.pdb
 C:\Users\pc\Documents\Realtime_ChatApp\ChatAppServer\ChatAppServer.WebAPI\obj\Debug\net8.0\ChatAppServer.WebAPI.genruntimeconfig.cache
 C:\Users\pc\Documents\Realtime_ChatApp\ChatAppServer\ChatAppServer.WebAPI\obj\Debug\net8.0\ref\ChatAppServer.WebAPI.dll
+C:\Users\pc\Documents\Realtime_ChatApp\ChatAppServer\ChatAppServer.WebAPI\bin\Debug\net8.0\ChatAppServer.WebAPI.staticwebassets.runtime.json

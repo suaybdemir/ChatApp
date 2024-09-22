@@ -9,7 +9,15 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddSignalR();
-builder.Services.AddDefaultCors();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
 builder.Services.AddDbContext<ApplicationContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer")
 
@@ -27,9 +35,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
+app.UseDefaultFiles();
+app.UseStaticFiles();
 
 app.UseHttpsRedirection();
+
+
 
 var filesPath = Path.Combine(builder.Environment.ContentRootPath, "Files");
 if (!Directory.Exists(filesPath))
@@ -46,13 +57,18 @@ FileProvider = new PhysicalFileProvider(
 }
 
 );
+app.UseRouting();
 
-
-app.UseCors();
+app.UseCors("AllowAll");
 
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
 
 app.MapHub<ChatHub>("/chat-hub");
 app.Run();

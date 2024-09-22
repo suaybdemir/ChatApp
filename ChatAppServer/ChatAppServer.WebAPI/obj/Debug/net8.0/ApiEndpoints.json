@@ -3,7 +3,7 @@
     "ContainingType": "ChatAppServer.WebAPI.Controllers.AuthenticationController",
     "Method": "Login",
     "RelativePath": "api/Authentication/Login",
-    "HttpMethod": "GET",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
