@@ -18,7 +18,7 @@ namespace ChatAppServer.WebAPI.Models
         public DateTime BirthDate { get; set; }
         public DateTime RegisterDate { get; set; } = DateTime.Now;
 
-        public string AvatarPath { get; set; } = string.Empty;
+        public string? AvatarPath { get; set; } = string.Empty;
         public bool Status { get; set; }
 
         public bool isActive { get; set; } = true;

@@ -2,5 +2,5 @@
 {
     public sealed record RegisterDto(
         string Name,
-        IFormFile Avatar);
+        IFormFile? Avatar);
 }

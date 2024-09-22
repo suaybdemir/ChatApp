@@ -2,11 +2,13 @@ using ChatAppServer.WebAPI.Data;
 using ChatAppServer.WebAPI.Hubs;
 using DefaultCorsPolicyNugetPackage;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.AddSignalR();
 builder.Services.AddDefaultCors();
 builder.Services.AddDbContext<ApplicationContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer")
@@ -25,7 +27,26 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
+
 app.UseHttpsRedirection();
+
+var filesPath = Path.Combine(builder.Environment.ContentRootPath, "Files");
+if (!Directory.Exists(filesPath))
+{
+    Directory.CreateDirectory(filesPath);
+}
+
+app.UseStaticFiles(new StaticFileOptions
+{
+        
+FileProvider = new PhysicalFileProvider(
+           filesPath),
+    RequestPath = "/StaticFiles"
+}
+
+);
+
 
 app.UseCors();
 

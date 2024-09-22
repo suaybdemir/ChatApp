@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ChatAppServer.WebAPI.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20240922141216_mg1")]
-    partial class mg1
+    [Migration("20240922165521_1")]
+    partial class _1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,8 +41,7 @@ namespace ChatAppServer.WebAPI.Migrations
                         .HasMaxLength(800)
                         .HasColumnType("varchar(255)");
 
-                    b.Property<string>("Avatar")
-                        .IsRequired()
+                    b.Property<string>("AvatarPath")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("BirthDate")
@@ -100,8 +99,8 @@ namespace ChatAppServer.WebAPI.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte>("Status")
-                        .HasColumnType("tinyint");
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
@@ -119,9 +118,8 @@ namespace ChatAppServer.WebAPI.Migrations
 
             modelBuilder.Entity("ChatAppServer.WebAPI.Models.Chat", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
