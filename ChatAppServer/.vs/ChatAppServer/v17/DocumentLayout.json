@@ -34,8 +34,7 @@
               "RelativeToolTip": "ChatAppServer.WebAPI\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-09-22T18:47:09.734Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-22T18:47:09.734Z"
             },
             {
               "$type": "Document",
@@ -45,7 +44,7 @@
               "RelativeDocumentMoniker": "ChatAppServer.WebAPI\\Controllers\\AuthenticationController.cs",
               "ToolTip": "C:\\Users\\pc\\Documents\\Realtime_ChatApp\\ChatAppServer\\ChatAppServer.WebAPI\\Controllers\\AuthenticationController.cs",
               "RelativeToolTip": "ChatAppServer.WebAPI\\Controllers\\AuthenticationController.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAAQwEkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADEAAAAAAAAAAAAQwD0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-22T18:25:46.348Z",
               "EditorCaption": ""
@@ -60,8 +59,7 @@
               "RelativeToolTip": "ChatAppServer.WebAPI\\Program.cs",
               "ViewState": "AgIAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-22T18:23:44.289Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-22T18:23:44.289Z"
             }
           ]
         }

@@ -165,7 +165,7 @@ body.login .lock-container .panel input {
     const username = document.getElementById('name').value;
     // const password = document.getElementById('password').value;
 
-    const url = `http://localhost:5236/api/Authentication/Login?name=${encodeURIComponent(username)}`;
+    const url = `https://localhost:44335/api/Authentication/Login?name=${encodeURIComponent(username)}`;
 
       fetch(url, {
       method: 'POST', // Use POST for sensitive data
