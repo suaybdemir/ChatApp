@@ -7,6 +7,8 @@
 <title>social network login - Bootdey.com</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+
 <style type="text/css">
     	body{margin-top:20px;}
 
@@ -158,47 +160,81 @@ body.login .lock-container .panel input {
 <a href="index.html" class="btn btn-success" id="login">Login <i class="fa fa-fw fa-unlock-alt"></i></a>
 
 <script>
+  // Create a connection to the SignalR hub
+  const connection = new signalR.HubConnectionBuilder()
+      .withUrl("https://localhost:44335/chat-hub") // Adjust this URL if needed
+      .build();
+
   document.getElementById('login').addEventListener('click', (event) => {
-    event.preventDefault(); // Prevent the default anchor behavior
+      event.preventDefault(); // Prevent the default form submission behavior
 
-    // Get values from the input fields
-    const username = document.getElementById('name').value;
-    // const password = document.getElementById('password').value;
+      // Get the username from the input field
+      const username = document.getElementById('name').value;
 
-    const url = `https://localhost:44335/api/Authentication/Login?name=${encodeURIComponent(username)}`;
+      // Construct the login URL with the username
+      const url = `https://localhost:44335/api/Authentication/Login?name=${encodeURIComponent(username)}`;
 
+      // Make a POST request to the login endpoint
       fetch(url, {
-      method: 'POST', // Use POST for sensitive data
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8 ', // Send JSON data
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({}) // Include username and password
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log(data); // Handle successful response data
+          method: 'POST', // Use POST for sensitive data
+          headers: {
+              'Content-Type': 'application/json; charset=utf-8', // Send JSON data
+              'Accept': 'application/json'
+          },
+          body: JSON.stringify({}) // Include username and password
+      })
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+          return response.json();
+      })
+      .then(data => {
+          console.log(data); // Log the successful response data
 
-      // Check if the login was successful
-      if (data.success) { // Adjust this according to your API response structure
-        localStorage.setItem('user', JSON.stringify(data.user));
-        window.location.href = 'index.html'; // Redirect to index.html
-      } else {
-        // Handle unsuccessful login (e.g., show an error message)
-        alert('Login failed: ' + data.message);
-      }
-    })
-    .catch(error => console.error('Error:', error));
+          // Check if the login was successful
+          if (data.success) {
+              // Store user information in localStorage
+              localStorage.setItem('user', JSON.stringify(data.user)); // Store the entire user object
+
+              // Start the SignalR connection
+              connection.start().then(() => {
+                  console.log("SignalR connection established.");
+
+                  // Retrieve the user object from localStorage
+                  const storedUser = localStorage.getItem('user');
+                  const user = JSON.parse(storedUser); // Parse the JSON string back into an object
+
+                  // Access the user ID
+                  const userId = user.id; // Ensure 'id' is the correct property for your user object
+
+                  // Invoke the 'Connect' method on the server
+                  connection.invoke("Connect", userId)
+                      .then(() => {
+                          console.log(`Connected with user ID: ${userId}`);
+                          
+                          // Redirect to the index.html page after successful connection
+                          window.location.href = 'Index.html'; 
+                      })
+                      .catch(err => {
+                          console.error("Error connecting: ", err);
+                          alert("Failed to connect to chat. Please try again.");
+                      });
+              }).catch(err => {
+                  console.error("Failed to connect to SignalR: ", err);
+                  alert("Failed to establish a connection. Please try again.");
+              });
+
+          } else {
+              // Handle unsuccessful login (e.g., show an error message)
+              alert('Login failed: ' + data.message);
+          }
+      })
+      .catch(error => console.error('Error:', error));
   });
 </script>
 
 
-  
 <a href="#" class="forgot-password">Forgot password?</a>
 </div>
 </div>

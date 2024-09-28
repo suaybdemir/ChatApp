@@ -13,5 +13,16 @@ namespace ChatAppServer.WebAPI.Data
         public DbSet<ApplicationUser> Users { get; set; }
 
         public DbSet<Chat> Chats { get; set; }
+
+        public DbSet<UserConnection> UserConnections { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<ApplicationUser>()
+                .HasKey(e => e.Id);
+        }
     }
 }

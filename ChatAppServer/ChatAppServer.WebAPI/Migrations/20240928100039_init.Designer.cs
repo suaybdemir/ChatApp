@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ChatAppServer.WebAPI.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20240922165521_1")]
-    partial class _1
+    [Migration("20240928100039_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,11 +27,8 @@ namespace ChatAppServer.WebAPI.Migrations
 
             modelBuilder.Entity("ChatAppServer.WebAPI.Models.ApplicationUser", b =>
                 {
-                    b.Property<long>("IdNumber")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("IdNumber"));
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
@@ -62,8 +59,8 @@ namespace ChatAppServer.WebAPI.Migrations
                     b.Property<bool>("Gender")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<long>("IdNumber")
+                        .HasColumnType("bigint");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -111,7 +108,7 @@ namespace ChatAppServer.WebAPI.Migrations
                     b.Property<bool>("isActive")
                         .HasColumnType("bit");
 
-                    b.HasKey("IdNumber");
+                    b.HasKey("Id");
 
                     b.ToTable("Users");
                 });

@@ -9,15 +9,22 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddSignalR();
+
+
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", builder =>
-    {
-        builder.AllowAnyOrigin()
-               .AllowAnyMethod()
-               .AllowAnyHeader();
-    });
+    options.AddPolicy("AllowSpecificOrigin",
+        builder =>
+        {
+            builder.WithOrigins("http://127.0.0.1:5500") // Add your frontend URL here
+                   .AllowAnyHeader()
+                   .AllowAnyMethod()
+                   .AllowCredentials(); // Allow credentials (cookies, authorization headers, etc.)
+        });
 });
+
+
+
 builder.Services.AddDbContext<ApplicationContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer")
 
@@ -59,7 +66,7 @@ FileProvider = new PhysicalFileProvider(
 );
 app.UseRouting();
 
-app.UseCors("AllowAll");
+app.UseCors("AllowSpecificOrigin");
 
 app.UseAuthorization();
 

@@ -6,7 +6,10 @@ namespace ChatAppServer.WebAPI.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        [Key]
+        public ApplicationUser()
+        {
+            Id = Guid.NewGuid().ToString();
+        }
         public long IdNumber { get; set; }
         public string Name { get; set; } = "";
         public string? MiddleName { get; set; }

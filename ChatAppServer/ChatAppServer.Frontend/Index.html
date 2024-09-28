@@ -7,6 +7,7 @@
 <title>messages like material design - Bootdey.com</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
 <style type="text/css">
     	body {
     font-family: Roboto,sans-serif;
@@ -221,6 +222,7 @@
     -moz-user-select: none;
 }
     </style>
+
 </head>
 <body>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
@@ -253,8 +255,9 @@
 <li><a href="#"><i class="fa fa-envelope"></i> Messages</a></li>
 <li><a href="#"><i class="fa fa-users"></i> Contacts</a></li>
 <!-- <li><a href="#"><i class="fa fa-format-list-bulleted"></i> Todo Lists</a></li> -->
-<li><a href="#"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
+<li><a href="Authentication.html" id="disconnectButton"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
 
+</script>
 </ul>
 </div>
 </div>
@@ -453,8 +456,82 @@ Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
 </div>
 </div>
 <div class="msb-reply">
-<textarea placeholder="What's on your mind..."></textarea>
-<button><i class="fa fa-paper-plane-o"></i></button>
+    <textarea id="messageContent" placeholder="What's on your mind..."></textarea>
+    <button id="sendButton"><i class="fa fa-paper-plane-o"></i></button>
+    
+    <script>
+         
+
+        async function sendMessage() {
+    // Get values from input fields
+   
+    const userDataString = localStorage.getItem('user');
+
+    const userData = JSON.parse(userDataString);
+    const userId = userData.id; 
+
+    console.log('UserId:', userId);
+
+    const toUserId = "84fbe9f8-2351-4cf3-9dcb-5a2fc03871b1"; // The ID of the recipient
+    const messageContent = document.getElementById('messageContent').value; // The message content
+
+    // Create the message object
+    const messageDto = {
+        userId: userId,
+        toUserId: toUserId,
+        message: messageContent
+    };
+
+    const url = 'https://localhost:44335/api/Chats/SendMessage';
+    // Make a POST request to the SendMessage API
+
+    console.log('Sending message:', messageDto);
+
+    
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(messageDto) // Send the message DTO as JSON
+        });
+
+        const responseText = await response.text(); // Read the response as text
+
+        if (!response.ok) {
+            console.error('Error response from server:', responseText);
+            throw new Error(responseText || 'Error sending message');
+        }
+
+        // Only attempt to parse the response as JSON if it's not empty
+        if (responseText) {
+            const data = JSON.parse(responseText); // Parse the text to JSON
+            console.log('Message sent successfully:', data);
+            alert('Message sent successfully!');
+        } else {
+            console.warn('No JSON response returned from the server.');
+        }
+
+    } catch (error) {
+        console.error('Failed to send message:', error);
+        alert('Failed to send message: ' + error.message);
+    }
+
+}
+
+    
+        // Set up event listener for the button after DOM is loaded
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById('sendButton').addEventListener('click', (event) => {
+                event.preventDefault(); // Prevent default button behavior
+                sendMessage(); // Call the sendMessage function
+            });
+        });
+    </script>
+    
+
 </div>
 </div>
 </div>
@@ -473,5 +550,6 @@ Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
 
 
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
 </body>
 </html>

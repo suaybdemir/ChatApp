@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ChatAppServer.WebAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class _1 : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -30,8 +30,8 @@ namespace ChatAppServer.WebAPI.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    IdNumber = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    IdNumber = table.Column<long>(type: "bigint", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MiddleName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FamilyName = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -42,7 +42,6 @@ namespace ChatAppServer.WebAPI.Migrations
                     AvatarPath = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Status = table.Column<bool>(type: "bit", nullable: false),
                     isActive = table.Column<bool>(type: "bit", nullable: false),
-                    Id = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -60,7 +59,7 @@ namespace ChatAppServer.WebAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.IdNumber);
+                    table.PrimaryKey("PK_Users", x => x.Id);
                 });
         }
 

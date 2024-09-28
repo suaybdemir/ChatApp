@@ -2,48 +2,73 @@
 using ChatAppServer.WebAPI.Dtos;
 using ChatAppServer.WebAPI.Hubs;
 using ChatAppServer.WebAPI.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.EntityFrameworkCore;
 
 namespace ChatAppServer.WebAPI.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    public sealed class ChatsController(ApplicationContext _context,IHubContext<ChatHub> _hubContext) : ControllerBase
+    public sealed class ChatsController : ControllerBase
     {
-        [HttpGet]
-        public async Task<IActionResult> GetChats(string userId,string toUserId,CancellationToken cancellationToken)
+        private readonly IHubContext<ChatHub> _hubContext;
+        private readonly ApplicationContext _context;
+
+        public ChatsController(ApplicationContext context, IHubContext<ChatHub> hubContext)
         {
-            List<Chat> chats = await _context.Chats.Where(p =>
-            p.UserId == userId && p.ToUserId == toUserId ||
-            p.UserId == toUserId && p.ToUserId == userId)
-            .OrderBy(p=>p.Date)
-            .ToListAsync(cancellationToken);
+            _context = context;
+            _hubContext = hubContext;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetChats(string userId, string toUserId, CancellationToken cancellationToken)
+        {
+            List<Chat> chats = await _context.Chats
+                .Where(p => (p.UserId == userId && p.ToUserId == toUserId) ||
+                             (p.UserId == toUserId && p.ToUserId == userId))
+                .OrderBy(p => p.Date)
+                .ToListAsync(cancellationToken);
 
             return Ok(chats);
         }
 
         [HttpPost]
-        public async Task<IActionResult> SendMessage(SendMessageDto request,CancellationToken cancellationToken)
+        public async Task<IActionResult> SendMessage([FromBody] SendMessageDto request, CancellationToken cancellationToken)
         {
+            // Create a new chat message
             Chat chat = new()
             {
+                Id = Guid.NewGuid().ToString(),
                 UserId = request.UserId,
                 ToUserId = request.ToUserId,
                 Message = request.Message,
                 Date = DateTime.Now
             };
 
-            await _context.AddAsync(chat,cancellationToken);
+            // Save the chat message to the database
+            await _context.AddAsync(chat, cancellationToken);
             await _context.SaveChangesAsync(cancellationToken);
 
-            string connectionId = ChatHub.Users.First(p => p.Value == chat.ToUserId).Key;
+            // Retrieve the connection ID for the recipient
+            var userConnection = await _context.UserConnections.FirstOrDefaultAsync(u => u.UserId == chat.UserId);
 
-            await _hubContext.Clients.Client(connectionId).SendAsync("Messages", chat);
+            string connectionId = userConnection.ConnectionId;
 
-            return Ok();
+            if (connectionId != null)
+            {
+                // Send the message to the recipient
+                await _hubContext.Clients.Client(connectionId).SendAsync("Messages", chat);
+            }
+            else
+            {
+                return NotFound(new { Message = "The recipient is not connected to the chat." });
+            }
+
+            return Ok(new { success = true , message = "Message sent has successfully!"});
+
         }
+        
     }
 }

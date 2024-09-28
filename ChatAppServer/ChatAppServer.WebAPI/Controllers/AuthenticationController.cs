@@ -1,8 +1,10 @@
 ﻿using ChatAppServer.WebAPI.Data;
 using ChatAppServer.WebAPI.Dtos;
+using ChatAppServer.WebAPI.Hubs;
 using ChatAppServer.WebAPI.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 
 namespace ChatAppServer.WebAPI.Controllers
@@ -10,7 +12,8 @@ namespace ChatAppServer.WebAPI.Controllers
     [Route("api/[controller]/[action]")]
     [ApiController]
     public sealed class AuthenticationController(ApplicationContext _context,
-        IWebHostEnvironment _env
+        IWebHostEnvironment _env,
+        IHubContext<ChatHub> _hubContext
         ): ControllerBase
     {
         [HttpPost]
@@ -63,12 +66,24 @@ namespace ChatAppServer.WebAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(string name,CancellationToken cancellationToken)
         {
+
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                return BadRequest(new { Message = "Username is required." });
+            }
+
             ApplicationUser? user = await _context.Users.FirstOrDefaultAsync(p=>p.Name == name,cancellationToken);
 
             if(user is null)
             {
                 return BadRequest(new { Message = "User couldn't find." });
             }
+
+            //if (_context.UserConnections.FirstOrDefaultAsync(u=>u.UserId==user.Id !=null))
+            //{
+            //    return BadRequest(new { Message = "User is already connected." });
+            //}
+
 
             user.Status = true;
 
