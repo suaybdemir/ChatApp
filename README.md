@@ -262,11 +262,3 @@ Contributions are welcome! Here are several ways you can contribute:
 </details>
 
 ---
-
----
-
-##  Acknowledgments
-
-- List any resources, contributors, inspiration, etc. here.
-
----
