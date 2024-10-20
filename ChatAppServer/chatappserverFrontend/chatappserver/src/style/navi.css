@@ -1,0 +1,19 @@
+.header {
+    cursor: pointer;
+}
+
+.theme-icon {
+    padding-top: 6px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.appbar-dark {
+    background-color: #1B1F23 !important;
+    color: white !important
+}
+
+.appbar-light {
+    background-color: white !important;
+    color: #1B1F23 !important
+}
