@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\pc\\Documents\\Realtime_ChatApp\\ChatAppServer\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{FE178CF3-2893-4DEA-B80E-414096E7229B}|ChatAppServer.WebAPI\\ChatAppServer.WebAPI.csproj|c:\\users\\pc\\documents\\realtime_chatapp\\chatappserver\\chatappserver.webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{FE178CF3-2893-4DEA-B80E-414096E7229B}|ChatAppServer.WebAPI\\ChatAppServer.WebAPI.csproj|solutionrelative:chatappserver.webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FE178CF3-2893-4DEA-B80E-414096E7229B}|ChatAppServer.WebAPI\\ChatAppServer.WebAPI.csproj|c:\\users\\pc\\documents\\realtime_chatapp\\chatappserver\\chatappserver.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FE178CF3-2893-4DEA-B80E-414096E7229B}|ChatAppServer.WebAPI\\ChatAppServer.WebAPI.csproj|solutionrelative:chatappserver.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -31,7 +35,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -39,17 +43,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "dbo.Chats [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/ChatAppDemo/True/SqlTable/dbo.Chats.sql",
-              "ToolTip": "dbo.Chats [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-10-02T10:11:43.534Z",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\pc\\Documents\\Realtime_ChatApp\\ChatAppServer\\ChatAppServer.WebAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "ChatAppServer.WebAPI\\appsettings.json",
+              "ToolTip": "C:\\Users\\pc\\Documents\\Realtime_ChatApp\\ChatAppServer\\ChatAppServer.WebAPI\\appsettings.json",
+              "RelativeToolTip": "ChatAppServer.WebAPI\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-07T07:07:20.117Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
+              "Title": "dbo.Chats.sql",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/ChatAppDemo/True/SqlTable/dbo.Chats.sql",
+              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/ChatAppDemo/True/SqlTable/dbo.Chats.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-10-02T10:11:43.534Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "dbo.Users.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/ChatAppDemo/True/SqlTable/dbo.Users.sql",
               "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/ChatAppDemo/True/SqlTable/dbo.Users.sql",
@@ -58,7 +74,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "dbo.UserConnections.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/ChatAppDemo/True/SqlTable/dbo.UserConnections.sql",
               "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/ChatAppDemo/True/SqlTable/dbo.UserConnections.sql",
@@ -67,7 +83,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\pc\\Documents\\Realtime_ChatApp\\ChatAppServer\\ChatAppServer.WebAPI\\Program.cs",
               "RelativeDocumentMoniker": "ChatAppServer.WebAPI\\Program.cs",
@@ -75,12 +91,11 @@
               "RelativeToolTip": "ChatAppServer.WebAPI\\Program.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAIwAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-28T10:53:31.953Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-28T10:53:31.953Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ChatHub.cs",
               "DocumentMoniker": "C:\\Users\\pc\\Documents\\Realtime_ChatApp\\ChatAppServer\\ChatAppServer.WebAPI\\Hubs\\ChatHub.cs",
               "RelativeDocumentMoniker": "ChatAppServer.WebAPI\\Hubs\\ChatHub.cs",
@@ -92,7 +107,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ChatsController.cs",
               "DocumentMoniker": "C:\\Users\\pc\\Documents\\Realtime_ChatApp\\ChatAppServer\\ChatAppServer.WebAPI\\Controllers\\ChatsController.cs",
               "RelativeDocumentMoniker": "ChatAppServer.WebAPI\\Controllers\\ChatsController.cs",
