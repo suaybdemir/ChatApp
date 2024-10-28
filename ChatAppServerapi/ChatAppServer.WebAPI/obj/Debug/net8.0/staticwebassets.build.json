@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "qUylG6i99uE+9196C42iNGaoZMNn1P/toAZPDLZo3Pc=",
+  "Source": "ChatAppServer.WebAPI",
+  "BasePath": "_content/ChatAppServer.WebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ChatAppServer.WebAPI\\wwwroot",
+      "Source": "ChatAppServer.WebAPI",
+      "ContentRoot": "C:\\Users\\enes\\Desktop\\Realtime_ChatApp\\Realtime_ChatApp\\ChatAppServerapi\\ChatAppServer.WebAPI\\wwwroot\\",
+      "BasePath": "_content/ChatAppServer.WebAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}

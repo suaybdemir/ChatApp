@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\enes\\Desktop\\Realtime_ChatApp\\Realtime_ChatApp\\ChatAppServerapi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FE178CF3-2893-4DEA-B80E-414096E7229B}|ChatAppServer.WebAPI\\ChatAppServer.WebAPI.csproj|c:\\users\\enes\\desktop\\realtime_chatapp\\realtime_chatapp\\chatappserverapi\\chatappserver.webapi\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE178CF3-2893-4DEA-B80E-414096E7229B}|ChatAppServer.WebAPI\\ChatAppServer.WebAPI.csproj|solutionrelative:chatappserver.webapi\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE178CF3-2893-4DEA-B80E-414096E7229B}|ChatAppServer.WebAPI\\ChatAppServer.WebAPI.csproj|c:\\users\\enes\\desktop\\realtime_chatapp\\realtime_chatapp\\chatappserverapi\\chatappserver.webapi\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE178CF3-2893-4DEA-B80E-414096E7229B}|ChatAppServer.WebAPI\\ChatAppServer.WebAPI.csproj|solutionrelative:chatappserver.webapi\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE178CF3-2893-4DEA-B80E-414096E7229B}|ChatAppServer.WebAPI\\ChatAppServer.WebAPI.csproj|c:\\users\\enes\\desktop\\realtime_chatapp\\realtime_chatapp\\chatappserverapi\\chatappserver.webapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE178CF3-2893-4DEA-B80E-414096E7229B}|ChatAppServer.WebAPI\\ChatAppServer.WebAPI.csproj|solutionrelative:chatappserver.webapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE178CF3-2893-4DEA-B80E-414096E7229B}|ChatAppServer.WebAPI\\ChatAppServer.WebAPI.csproj|c:\\users\\enes\\desktop\\realtime_chatapp\\realtime_chatapp\\chatappserverapi\\chatappserver.webapi\\controllers\\chatscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE178CF3-2893-4DEA-B80E-414096E7229B}|ChatAppServer.WebAPI\\ChatAppServer.WebAPI.csproj|solutionrelative:chatappserver.webapi\\controllers\\chatscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE178CF3-2893-4DEA-B80E-414096E7229B}|ChatAppServer.WebAPI\\ChatAppServer.WebAPI.csproj|c:\\users\\enes\\desktop\\realtime_chatapp\\realtime_chatapp\\chatappserverapi\\chatappserver.webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{FE178CF3-2893-4DEA-B80E-414096E7229B}|ChatAppServer.WebAPI\\ChatAppServer.WebAPI.csproj|solutionrelative:chatappserver.webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthenticationController.cs",
+              "DocumentMoniker": "C:\\Users\\enes\\Desktop\\Realtime_ChatApp\\Realtime_ChatApp\\ChatAppServerapi\\ChatAppServer.WebAPI\\Controllers\\AuthenticationController.cs",
+              "RelativeDocumentMoniker": "ChatAppServer.WebAPI\\Controllers\\AuthenticationController.cs",
+              "ToolTip": "C:\\Users\\enes\\Desktop\\Realtime_ChatApp\\Realtime_ChatApp\\ChatAppServerapi\\ChatAppServer.WebAPI\\Controllers\\AuthenticationController.cs",
+              "RelativeToolTip": "ChatAppServer.WebAPI\\Controllers\\AuthenticationController.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAQwEcAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T06:58:56.142Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ChatsController.cs",
+              "DocumentMoniker": "C:\\Users\\enes\\Desktop\\Realtime_ChatApp\\Realtime_ChatApp\\ChatAppServerapi\\ChatAppServer.WebAPI\\Controllers\\ChatsController.cs",
+              "RelativeDocumentMoniker": "ChatAppServer.WebAPI\\Controllers\\ChatsController.cs",
+              "ToolTip": "C:\\Users\\enes\\Desktop\\Realtime_ChatApp\\Realtime_ChatApp\\ChatAppServerapi\\ChatAppServer.WebAPI\\Controllers\\ChatsController.cs",
+              "RelativeToolTip": "ChatAppServer.WebAPI\\Controllers\\ChatsController.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T06:58:42.109Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\enes\\Desktop\\Realtime_ChatApp\\Realtime_ChatApp\\ChatAppServerapi\\ChatAppServer.WebAPI\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "ChatAppServer.WebAPI\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\enes\\Desktop\\Realtime_ChatApp\\Realtime_ChatApp\\ChatAppServerapi\\ChatAppServer.WebAPI\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "ChatAppServer.WebAPI\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T06:58:40.794Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ChatHub.cs",
+              "DocumentMoniker": "C:\\Users\\enes\\Desktop\\Realtime_ChatApp\\Realtime_ChatApp\\ChatAppServerapi\\ChatAppServer.WebAPI\\Hubs\\ChatHub.cs",
+              "RelativeDocumentMoniker": "ChatAppServer.WebAPI\\Hubs\\ChatHub.cs",
+              "ToolTip": "C:\\Users\\enes\\Desktop\\Realtime_ChatApp\\Realtime_ChatApp\\ChatAppServerapi\\ChatAppServer.WebAPI\\Hubs\\ChatHub.cs",
+              "RelativeToolTip": "ChatAppServer.WebAPI\\Hubs\\ChatHub.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAArwDoAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T06:33:49.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\enes\\Desktop\\Realtime_ChatApp\\Realtime_ChatApp\\ChatAppServerapi\\ChatAppServer.WebAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "ChatAppServer.WebAPI\\appsettings.json",
+              "ToolTip": "C:\\Users\\enes\\Desktop\\Realtime_ChatApp\\Realtime_ChatApp\\ChatAppServerapi\\ChatAppServer.WebAPI\\appsettings.json",
+              "RelativeToolTip": "ChatAppServer.WebAPI\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-28T06:32:55.59Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
